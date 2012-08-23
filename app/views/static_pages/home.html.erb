@@ -1,0 +1,30 @@
+<h1>Meet developers at meetup.</h1>
+
+<%
+	@events.each do |event, members|
+%>
+		<p>Event : <%= event %></p>
+<%
+		members.each do |member|
+%>
+			<p>Member : <%= member[:name] %></p>
+			<%= 
+			image_tag(member[:meetup_photo_link], :size => '48x48')
+			%>
+			<%=
+			link_to 'Member Profile', member[:member_url]
+			%>
+			<%=
+			image_tag(member[:github_photo_link], :size => '48x48')
+			%>
+			<%=
+			link_to 'Github Profile', member[:github_html_url]
+			%>
+			<p>-----------------------------------------------------------------</p>
+<%	
+		end
+%>
+		<p>===================================================================</p>
+<%
+	end
+%>
